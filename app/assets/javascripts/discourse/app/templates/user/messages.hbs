@@ -59,11 +59,8 @@
   <div class="list-actions">
     {{#unless site.mobileView}}
       {{#if showToggleBulkSelect}}
-        {{d-button
-          class="btn-default bulk-select"
-          action=(action "toggleBulkSelect")
-          title="user.messages.bulk_select"
-          icon="list"}}
+        {{d-button icon="list" class="btn-default bulk-select" title="topics.bulk.toggle" action=(action "toggleBulkSelect")}}
+        {{bulk-select-button selected=selected category=category}}
       {{/if}}
     {{/unless}}
 
@@ -75,20 +72,6 @@
           icon="envelope"
           label="user.new_private_message"}}
       {{/if}}
-    {{/if}}
-
-    {{#if canArchive}}
-      {{d-button
-        class="btn-default btn-archive"
-        action=(action "archive")
-        label="user.messages.move_to_archive"}}
-    {{/if}}
-
-    {{#if canMoveToInbox}}
-      {{d-button
-        class="btn-default btn-to-inbox"
-        action=(action "toInbox")
-        label="user.messages.move_to_inbox"}}
     {{/if}}
 
     {{#if bulkSelectEnabled}}
